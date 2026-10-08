@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="transparent">
+  <title>SAMC Square Telemetry HUD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="speedometer" class="telemetry-hud" aria-label="Vehicle telemetry">
+    <div class="hud-grid">
+      <header class="hud-top no-drag">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div class="brand-copy">
+            <strong>SAMC</strong>
+            <span>VEHICLE SYSTEM</span>
+          </div>
+        </div>
+        <div class="top-meta">
+          <div class="mini-meta">
+            <span>GEAR</span>
+            <strong id="gear-display">N</strong>
+          </div>
+          <div class="mini-meta">
+            <span>ODO</span>
+            <strong id="odometer">000000.0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="speed-zone">
+        <div class="speed-orbit orbit-a"></div>
+        <div class="speed-orbit orbit-b"></div>
+        <div class="speed-kicker">CURRENT SPEED</div>
+        <div class="speed-row">
+          <span id="speed-display">0</span>
+          <small id="speed-unit">MPH</small>
+        </div>
+        <div class="speed-track"><span id="speed-progress-fill"></span></div>
+        <div class="speed-scale"><span>0</span><span>50</span><span>100</span><span>150</span><span>200+</span></div>
+      </section>
+
+      <aside class="side-card side-left">
+        <div class="side-title">POWER</div>
+        <div class="status-line" id="indicator-engine">
+          <span class="status-dot"></span>
+          <span>ENGINE</span>
+          <strong id="engine-text">OFF</strong>
+        </div>
+        <div class="status-line" id="indicator-headlights">
+          <span class="status-dot"></span>
+          <span>LIGHTS</span>
+          <strong id="lights-text">OFF</strong>
+        </div>
+        <div class="vertical-meter">
+          <div class="meter-label"><span>FUEL</span><b id="fuel-text">100%</b></div>
+          <div class="meter-track"><i id="fuel-fill"></i></div>
+        </div>
+      </aside>
+
+      <aside class="side-card side-right">
+        <div class="side-title">VEHICLE</div>
+        <div class="vertical-meter health-meter">
+          <div class="meter-label"><span>CONDITION</span><b id="health-text">100%</b></div>
+          <div class="meter-track"><i id="health-fill"></i></div>
+        </div>
+        <div class="indicator-list no-drag">
+          <div id="indicator-left" class="micro-indicator"><span>◀</span><small>LEFT</small></div>
+          <div id="indicator-seatbelt" class="micro-indicator"><span>SB</span><small>BELT</small></div>
+          <div id="indicator-right" class="micro-indicator"><span>▶</span><small>RIGHT</small></div>
+        </div>
+      </aside>
+
+      <section class="rpm-zone">
+        <div class="rpm-head">
+          <span>ENGINE RPM</span>
+          <strong id="rpm-value">0.0K</strong>
+        </div>
+        <div class="rpm-bar" id="rpm-segments">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="rpm-notes"><span>IDLE</span><span>REDLINE</span></div>
+      </section>
+
+      <footer class="hud-bottom no-drag">
+        <div class="bottom-chip"><span class="chip-label">MODE</span><strong id="drive-mode">NORMAL</strong></div>
+        <div class="bottom-chip"><span class="chip-label">STATUS</span><strong id="system-status">STANDBY</strong></div>
+        <div class="bottom-mark">SAMC / 1:1</div>
+      </footer>
+    </div>
+    <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  </main>
+
+  <script src="peer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
